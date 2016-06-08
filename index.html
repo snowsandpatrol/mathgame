@@ -5,18 +5,19 @@
     <title>Hangman</title>
     <!-- //JAVASCRIPT -->
         <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
-        <script src="./hangman.js"></script>
+        <script src="./mathgame.js"></script>
 
-        <link rel="stylesheet" type="text/css" href="./hangman.css">
+        <link rel="stylesheet" type="text/css" href="./mathgame.css">
 
   </head>
   <h1>MENTAL ARIMETIC GAME</h1>
   <h2>I KNOW YOU ARE BORED</h2>
 
   <body>
-    <div class=section1>
-      <div class=player>Current Player</div>
-      <div class=timer>Timer </div>
+    <div class=section1> Time Spent
+      <div class=timer>Timer() </div>
+      <div id=currentquestion>[]</div>
+      <!-- <div class=player>Current Player</div> -->
     </div>
 
     <div class=section2>
@@ -25,7 +26,7 @@
           <h5 id=sign> + </h5>
           <h5 id=2ndnumber>2nd no. </h5>
           <h5> = </h5>
-          <h5 id=answer>answer </h5>
+          <h5><input id=answer type='text'>answer here</h5>
 
         </div>
 
@@ -34,11 +35,11 @@
 
     <div class=section3>
 
-      <button>START BUTTON</button>
+      <button id=start>START BUTTON</button>
       <h3>THE SCORE BOARD</h3>
-      <h4 id=player1score>player1score</h4>
-      <h4 id=player2score>player2score</h4>
-      <h3 id=results>Player 1 Wins</h3>
+      <h4 id=player1score>TotalScore ()</h4>
+      <!-- <h4 id=player2score>player2score</h4> -->
+      <h3 id=results>Results()</h3>
 
     </div>
 

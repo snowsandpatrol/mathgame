@@ -1,161 +1,122 @@
+  $(document).ready(function () {
+    console.log('dom is ready')
+// ACTIVATE THE START BUTTON
+  $('#start').click(function () {
+    restart()
+    // $('#answer').text(userinput);
+    console.log('restart button clicked.')
+  })
 
-function getRandomInt(min, max) {
-return Math.floor(Math.random() * (max - min)) + min;
-}
+// DOCUMENT ENDS
+  })
 
-var currentplayer = 1
-var player1score = 0
-var player2score = 0
-
-var number1 = getRandomInt(0,10)
-var number2 = getRandomInt(0,10)
-var question = number1+number2
-var questionnumber = 0
-
-$(document).ready(function() {
-
-// Returns a random integer between min (included) and max (excluded)
-// Using Math.round() will give you a non-uniform distribution!
-console.log("dom is ready");
-console.log(number1);
-console.log(number2);
-
-//DOCUMENT CLOSE
-})
-
-//ACTIVATE THE START BUTTON
-$('button').click(function () {
-  restart ();
-  console.log("restart button activated.")
-})
-
-function restart() {
-  $('#1stnumber').text(number1)
-  $('#2ndnumber').text(number2)
-  show_prompt()
-  updatedisplay();
-  console.log("restart button activated!")
-}
-
-function updatedisplay() {
-  if (gameover()) {
-      $('#results').text('Game Over!')
-      console.log("GameOver!")
-  } else {
-      $('#player1score').text('Player 1: ' + player1score)
-      $('#player2score').text('Player 2: ' + player2score)
-      $('#results').text('Please Continue!')
-      console.log("Please Continue!")
-  }
-}
-
-
-// function playTurn (choice) {
-//   if (quiz.isGameOver) {
-//     return false
-//   }
-//   var correct = false
-//   if (choice === quiz.questions[quiz.currentQuestion].correctChoice) {
-//     correct = true;
-//     console.log(correct)
-//
-//     if (quiz.currentQuestion % 2) {
-//       quiz.player2Points++
-//       console.log("player 2 points ", quiz.player2Points)
-//     } else {
-//       quiz.player1Points++
-//       console.log("player 1 points ", quiz.player1Points)
-//     }
-//   }
-//   ++quiz.currentQuestion
-//   if (quiz.currentQuestion === numberOfQuestions()) {
-//     quiz.isGameOver = true
-//   }
-//   return correct
-// }
-
-//NEED TO TIE THIS WITH GAME NUMBER
-
-
-
-function playturn() {
-  if ( gameover())
-  {console.log("Game is over")}
-  else
-
-  if (questionnumber % 2) {
-    currentplayer=2
-    questionnumber++
-    show_prompt()
-  } else {
-    currentplayer=1
-    questionnumber++
-    show_prompt()
-  }
-}
-
-var userinput = function show_prompt()
-{var userinput=prompt("?")
-$('#answer').text(userinput)
-console.log(userinput)
-correct()
-}
-
-function correct() {
-  if (number1+number2 === userinput) {
-  totalscore()
-  console.log("correct")
-}
-}
-//GAMEOVER WHEN  COMPLETED 10QUESTIONS
-function gameover() {
-  if (questionnumber === 10) {
-  console.log("gameover")}
-}
-
-function whowins() {
-  if (gameover()) {
-    if (player1score > player2score)
-    {
-      return "player 1 wins!"
-      console.log("player 1 wins!") }
-    else (player1score < player2score)
-    {
-      return "player 2 wins!"
-      console.log("player 2 wins!")
+// WITHIN FUNCTION ENTER TO COMPARE THE USERINPUT TO THE ANSWER
+  document.addEventListener('keydown', keyEnterHandler, false)
+  function keyEnterHandler (e) {
+    if (e.keyCode === 13) {
+// ANSWER BUTTON
+      var answer = $('#answer').val()
+      correct(Number(answer))
+      console.log('local variable ' + answer)
+// return answer
     }
-}
-
-}
-
-
-
-
-// function correct() {
-//   if (question.qn[0] === (number1*number2) ||
-//   question.qn[1] === (number1+number2) ||
-//   question.qn[2] === (number1-number2)) {
-//   totalscore()
-//   }
-// }
-
-function totalscore() {
-  if (currentplayer = 2 && correct())
-  {quiz.player2score++
-    console.log("player 2 points ", quiz.player2score)
-    updatedisplay()
   }
-  else (currentplayer = 1 && correct())
-  {quiz.player1score++
-    console.log("player 1 points ", quiz.player1score)
-    updatedisplay()
-  }
-}
 
-//TIMER
-  var timer = 10;
-  var interval = setInterval(function() {
-      timer--;
-      $('.timer').text(timer);
-      if (timer === 0) clearInterval(interval);
-  }, 1000);
+  function correct (answer) {
+    console.log("function correct" + answer)
+    if (answer === number1 + number2) {
+      ++player1score
+      console.log ("it is correct!")
+      ++quiz.currentQuestion
+      updatedisplay ()
+      time()
+    }
+  }
+
+//THIS IS GLOBAL VARIABLE
+var player1score = 0
+var number1 = 0
+var number2 = 0
+
+// QUESTION
+    function question(number1, number2, userinput, correctAnswer){
+      this.prompt = prompt
+      this.choices = answers
+      this.correctAnswer = number1 + number2
+    }
+
+    var quiz = {
+      currentQuestion: 0,
+      numberofQuestions: 2,
+      isGameOver: false
+    }
+
+// JQUERY TO GET DIV. CHANGE VALUE OF DIV TO THE NUMBER
+
+  function generatenumber () {
+    return Math.round(Math.random() * 10)
+  }
+
+
+
+  function endGame () {
+    if (quiz.currentQuestion === quiz.numberofQuestions) {
+      console.log('game over!')
+      //  STOP TIMER
+      //  STOP QUIZ
+      return true
+    }
+  }
+
+// QUESTION IS OVER WHEN TIMER = 0
+  function questionOver () {
+    console.log('questionOver activated')
+    ++quiz.currentQuestion
+    updatedisplay()
+    time()
+    endGame()
+    correct()
+  }
+
+// TIMER
+  function time () {
+    var timer = 6
+    var interval = setInterval(function () {
+      timer--
+      $('.timer').text(timer)
+      if (timer === 0) {
+        clearInterval(interval)
+// CALL QUESTIONOVER() FUNCTION
+        questionOver()
+      }
+    }, 1000)
+  }
+
+  function restart () {
+    console.log('restart function activated!')
+    updatedisplay()
+    time()
+    // window.location.reload()
+  }
+
+  function updatedisplay () {
+    if (quiz.isGameOver === true) {
+      $('#results').text('Game Over!')
+      console.log('If updated display activated!')
+    } else {
+  // UPDATE THE 2 NUMBERS
+      number1 = generatenumber()
+      number2 = generatenumber()
+      console.log('hi')
+      $('#1stnumber').text(number1)
+      $('#2ndnumber').text(number2)
+
+  // UPDATE PLAYERS SCORE
+      $('#player1score').text('Total Score: ' + player1score)
+      $('#results').text('Please Continue!')
+  // UPDATE NEXT QUESION
+      $('#currentquestion').text('Current Question ' + quiz.currentQuestion)
+
+      console.log('Else updated display activated!')
+    }
+  }
