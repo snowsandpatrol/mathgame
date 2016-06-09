@@ -16,22 +16,35 @@
     if (e.keyCode === 13) {
 // ANSWER BUTTON
       var answer = $('#answer').val()
+// CLEAR VALUE
+      $('#answer').val('')
+
       correct(Number(answer))
       console.log('local variable ' + answer)
+      updatedisplay ()
+      time()
+      endGame ()
 // return answer
     }
   }
 
   function correct (answer) {
+    ++quiz.currentQuestion
     console.log("function correct" + answer)
     if (answer === number1 + number2) {
       ++player1score
       console.log ("it is correct!")
-      ++quiz.currentQuestion
-      updatedisplay ()
-      time()
     }
   }
+
+  // QUESTION IS OVER WHEN TIMER = 0 (OR WHEN ANSWER IS GIVEN IN CORRECT IS ACTIVATED EVEN BEFORE TIMER = 0)
+    function questionOver () {
+      console.log('questionOver activated')
+      updatedisplay()
+      time()
+      endGame()
+      correct()
+    }
 
 //THIS IS GLOBAL VARIABLE
 var player1score = 0
@@ -46,8 +59,8 @@ var number2 = 0
     }
 
     var quiz = {
-      currentQuestion: 0,
-      numberofQuestions: 2,
+      currentQuestion: 1,
+      numberofQuestions: 10,
       isGameOver: false
     }
 
@@ -60,28 +73,27 @@ var number2 = 0
 
 
   function endGame () {
+    console.log('game over is triggered!')
+    console.log(quiz.currentQuestion)
+    console.log(quiz.numberofQuestions)
     if (quiz.currentQuestion === quiz.numberofQuestions) {
       console.log('game over!')
+      alert('Game Over.  You Scored ' + Math.round((player1score/quiz.numberofQuestions)*100) + '%')
+      location.reload()
       //  STOP TIMER
       //  STOP QUIZ
       return true
     }
   }
 
-// QUESTION IS OVER WHEN TIMER = 0
-  function questionOver () {
-    console.log('questionOver activated')
-    ++quiz.currentQuestion
-    updatedisplay()
-    time()
-    endGame()
-    correct()
-  }
 
+
+var interval
 // TIMER
   function time () {
+    clearInterval(interval)
     var timer = 6
-    var interval = setInterval(function () {
+    interval = setInterval(function () {
       timer--
       $('.timer').text(timer)
       if (timer === 0) {
@@ -93,6 +105,7 @@ var number2 = 0
   }
 
   function restart () {
+    quiz.currentQuestion = 1
     console.log('restart function activated!')
     updatedisplay()
     time()
@@ -112,10 +125,10 @@ var number2 = 0
       $('#2ndnumber').text(number2)
 
   // UPDATE PLAYERS SCORE
-      $('#player1score').text('Total Score: ' + player1score)
-      $('#results').text('Please Continue!')
+      $('#player1score').text(player1score)
+      $('#results').text('game in progress...')
   // UPDATE NEXT QUESION
-      $('#currentquestion').text('Current Question ' + quiz.currentQuestion)
+      $('#currentquestion').text(quiz.currentQuestion + ' out of ' + quiz.numberofQuestions)
 
       console.log('Else updated display activated!')
     }
