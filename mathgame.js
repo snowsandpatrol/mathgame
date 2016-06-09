@@ -21,9 +21,9 @@
 
       correct(Number(answer))
       console.log('local variable ' + answer)
-      updatedisplay ()
+      updatedisplay()
       time()
-      endGame ()
+      endGame()
 // return answer
     }
   }
@@ -65,19 +65,16 @@ var number2 = 0
     }
 
 // JQUERY TO GET DIV. CHANGE VALUE OF DIV TO THE NUMBER
-
   function generatenumber () {
     return Math.round(Math.random() * 10)
   }
-
-
 
   function endGame () {
     console.log('game over is triggered!')
     console.log(quiz.currentQuestion)
     console.log(quiz.numberofQuestions)
-    if (quiz.currentQuestion === quiz.numberofQuestions) {
-      console.log('game over!')
+    if (quiz.currentQuestion > quiz.numberofQuestions) {
+      $('#currentquestion').text('')
       alert('Game Over.  You Scored ' + Math.round((player1score/quiz.numberofQuestions)*100) + '%')
       location.reload()
       //  STOP TIMER
@@ -120,7 +117,6 @@ var interval
   // UPDATE THE 2 NUMBERS
       number1 = generatenumber()
       number2 = generatenumber()
-      console.log('hi')
       $('#1stnumber').text(number1)
       $('#2ndnumber').text(number2)
 
