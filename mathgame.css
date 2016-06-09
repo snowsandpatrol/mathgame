@@ -22,13 +22,13 @@ body {
 
 .main-content-left {
     background-color: #4694A6;
-    flex: 1;
+    flex-grow: 1;
     font-size: 25px;
 }
 
 .side-content-right {
     background-color: #CDD9A3;
-    flex: 2;
+    flex-grow: 2;
     font-size: 30px;
 }
 
