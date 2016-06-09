@@ -51,13 +51,6 @@ var player1score = 0
 var number1 = 0
 var number2 = 0
 
-// QUESTION
-    function question(number1, number2, userinput, correctAnswer){
-      this.prompt = prompt
-      this.choices = answers
-      this.correctAnswer = number1 + number2
-    }
-
     var quiz = {
       currentQuestion: 1,
       numberofQuestions: 10,
