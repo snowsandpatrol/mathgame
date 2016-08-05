@@ -52,7 +52,7 @@ var number1 = 0
 var number2 = 0
 
     var quiz = {
-      currentQuestion: 1,
+      currentQuestion: 0,
       numberofQuestions: 10,
       isGameOver: false
     }
