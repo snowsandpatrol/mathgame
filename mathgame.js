@@ -47,21 +47,12 @@
     }
 
 //THIS IS GLOBAL VARIABLE
-<<<<<<< HEAD
   var player1score = 0
   var number1 = 0
   var number2 = 0
 
     var quiz = {
       currentQuestion: 1,
-=======
-var player1score = 0
-var number1 = 0
-var number2 = 0
-
-    var quiz = {
-      currentQuestion: 0,
->>>>>>> origin/gh-pages
       numberofQuestions: 10,
       isGameOver: false
     }
@@ -85,11 +76,6 @@ var number2 = 0
     }
   }
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/gh-pages
 var interval
 // TIMER
   function time () {
@@ -122,13 +108,9 @@ var interval
   // UPDATE THE 2 NUMBERS
       number1 = generatenumber()
       number2 = generatenumber()
-<<<<<<< HEAD
       $('#stnumber').text(number1)
       $('#ndnumber').text(number2)
-=======
-      $('#1stnumber').text(number1)
-      $('#2ndnumber').text(number2)
->>>>>>> origin/gh-pages
+
 
   // UPDATE PLAYERS SCORE
       $('#player1score').text(player1score)
