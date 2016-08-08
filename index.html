@@ -3,67 +3,172 @@
   <head>
     <meta charset="utf-8">
     <title> Math Game</title>
+
     <!-- //JAVASCRIPT -->
         <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
         <script src="./mathgame.js"></script>
 
         <link rel="stylesheet" type="text/css" href="./mathgame.css">
 
+    <!-- //BOOTSTRAP-->
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        
+        
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700|Roboto:300,400' rel='stylesheet' type='text/css'>
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+        
   </head>
 
-  <body class="flex-wrapper">
+  <body>
+      
+<div class="page-header">
+  <h1>Math Game</h1>
+</div>
 
-      <div class="flex-child header">
-      <h1>THE MATH GAME</h1>
-      </div>
+    
 
+    <div class='container'>
+        <div class="row">
+             <div class="col-md-6">
+             
+             <div class="panel panel-default">
+                  <!-- Default panel contents -->
+                  <div class="panel-heading"><strong>Game Dashboard</strong></div>
+                  
+                  <!-- List group -->
+                  <ul class="list-group">
+                   
+        <!-- RESULTS-->
+                    <li class="list-group-item">
+                       <div> <strong>Instruction: </strong>
+                        <span id=results>Click on 'start' button below </span>
+                    </div>
+                    </li>
+                    
+        <!-- TIMESPENT -->            
+                    <li class="list-group-item">
+                          <div><strong>Time Spent: </strong><span class=timer>5</span>
+                          </div>
 
-    <div class="flex-child main-content-left content">
+                    </li>
+        
+    
+        <!-- QUESTION -->
+                    <li class="list-group-item">
+                            <div><strong>Current Question:</strong>
+                            <span id=currentquestion>1 out of 10</span>
+                            </div>
+                    </li>
+                    
+        <!-- TOTALSCORE-->
+                    <li class="list-group-item">
+                          <div><strong>Total Score: </strong><span id=player1score>0</span></div>
+                     </li>
 
-          <!-- RESULTS-->
-                <div class=section>
-                    <div id=results>Click on START button...</div>
+                  </ul>
                 </div>
+ 
+               </div>
+           
+    <div class='container'>
+       
+        <div class="col-md-6"  id="right">
 
-          <!-- TIMESPENT -->
-                <div class=section>
-                  <div>Time Spent</div>
-                  <div class=timer>5</div>
-                </div>
+                <div class="row">
 
-          <!-- QUESTION -->
-                <div class=section>
-                    <div>Current Question</div>
-                    <div id=currentquestion>1 out of 10</div>
-                  </div>
+                    <div class="col-md-4">
+                        <div class="well">
+                            <h5 id="stnumber">1st</h5>
+                        </div> 
+                    </div>
 
-
-          <!-- TOTALSCORE-->
-                <div class=section>
-                  <div>Total Score</div>
-                  <div id=player1score>0</div>
-                </div>
-
-    </div>
-
-
-        <div class="flex-child side-content-right content">
+                    <div class="col-md-4">
+                        <div class="well">
+                        <h5 id="sign">+</h5> 
+                        </div> 
+                    </div>        
 
 
-          <div class=mathboard>
-            <h5 id=1stnumber>X</h5>
-            <h5 id=sign> + </h5>
-            <h5 id=2ndnumber>Y</h5>
-            <h5> = </h5>
-            <h5> <input id=answer type='text' maxlength='2' minlength='1'answer here> </h5>
+                    <div class="col-md-4">
+                        <div class="well">
+                            <h5 id="ndnumber">2nd</h5>
+                        </div> 
+                    </div>   
 
-          </div>
-
+                </div>     
+                
+                 <form>          
+                        <strong>Answer:</strong>
+                        </br>
+                        <input type="text" maxlength='2' minlength='1' id=answer><br>
+                        </br>
+                      <input type="submit" value="Enter" >
+                </form>
+                 
         </div>
-
-    <div class="flex-child footer">
-      <button id=start>START BUTTON</button>
+        
     </div>
+    </div>
+</div>
 
+   <div class="bottom">
+        <div class="flex-child footer">
+            <button type="button" class="btn btn-lg btn-default-outline" id=start>Start</button>
+        </div>
+    </div>
+    
+    <footer id="footer" role="contentinfo">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center ">
+						<div class="footer-widget border">
+							<p class="pull-left"><small>&copy; LM. All Rights Reserved.</small></p>
+							<p class="pull-right"><small> Designed by  <a href="" ta>LM</a> </small></p>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
   </body>
+
 </html>
