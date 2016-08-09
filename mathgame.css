@@ -6,31 +6,26 @@
     text-align: center;
 }
 
-.btn-group-lg {
-   margin: auto;  
-}
-
-.bottom{
-   margin: 0 auto;
-    text-align: left;
-    width: 800px;
-}
-
 #sign{
     margin:0 auto;
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
 }
 
-#ndnumber, #stnumber{
+#ndnumber, #stnumber, #bottom {
     margin:0 auto;
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
 }
 
-#right {
-    padding-top: 20px;
-    margin:0 auto;
-    text-align: center;
-    height: 300px;
+#start {
+    font-size: 40px;
+    position: relative;
+    width: 100%;
+}
+
+input{ 
+text-align:center; 
+width: 250px;
+height: 50px;
 }
