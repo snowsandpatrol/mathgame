@@ -60,11 +60,10 @@
   <h1>Math Game</h1>
 </div>
 
-    
-
-    <div class='container'>
+<!--DASHBOARD-->    
+<div class='container'>
         <div class="row">
-             <div class="col-md-6">
+             <div class="col-md-12">
              
              <div class="panel panel-default">
                   <!-- Default panel contents -->
@@ -101,19 +100,28 @@
                      </li>
 
                   </ul>
+                  
                 </div>
- 
-               </div>
-           
-    <div class='container'>
-       
-        <div class="col-md-6"  id="right">
+                
+        <!-- START BUTTON-->
 
-                <div class="row">
+             <button type="button" class="btn btn-lg btn-default-outline" id=start>Start</button>
+    
+</div>
+
+
+
+<!--QUESTION-->
+<div class='container'>
+       
+      <div class="row">
+        <div class="col-md-12"  id="right">
+
+                   <br>
 
                     <div class="col-md-4">
                         <div class="well">
-                            <h5 id="stnumber">1st</h5>
+                        <h5 id="stnumber">1st</h5>
                         </div> 
                     </div>
 
@@ -126,31 +134,32 @@
 
                     <div class="col-md-4">
                         <div class="well">
-                            <h5 id="ndnumber">2nd</h5>
+                        <h5 id="ndnumber">2nd</h5>
                         </div> 
                     </div>   
+                                        
+            </div>                     
+        </div>     
 
-                </div>     
-                
-                 <form>          
-                        <strong>Answer:</strong>
-                        </br>
-                        <input type="text" maxlength='2' minlength='1' id=answer><br>
-                        </br>
-                      <input type="submit" value="Enter" >
-                </form>
-                 
-        </div>
+
+        <div class="row">
+            <div class="col-md-12" >
+                    <h5 id="bottom">
+                        <input type="text" maxlength='2' minlength='1' id=answer>
+                            <br>
+                      <button type="button" value="Enter" class="btn btn-success">Submit</button>
+                            <br>
+                    </h5>
+                    
+            </div>   
+        </div>     
+    </div>
         
-    </div>
-    </div>
-</div>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  </body>
 
-   <div class="bottom">
-        <div class="flex-child footer">
-            <button type="button" class="btn btn-lg btn-default-outline" id=start>Start</button>
-        </div>
-    </div>
     
     <footer id="footer" role="contentinfo">
 			<div class="container">
@@ -165,10 +174,5 @@
 				</div>
 			</div>
 		</footer>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-  </body>
 
 </html>
